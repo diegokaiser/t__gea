@@ -188,71 +188,63 @@ const Nav = ({
 											className="text-left box-border flex items-center justify-start relative w-full"
 											style={{ textDecoration: "none" }}
 										>
-											{user ? (
-												<>
-													<Loader />
-												</>
-											) : (
-												<>
-													<div className="min-w-[56px] shrink-0">
-														<div className="relative flex items-center justify-center shrink-0 leading-1 rounded-[50%] overflow-hidden bg-[#e9f0ff80] w-[46px] h-[46px]">
-															<img
-																className="w-full h-full text-center object-cover text-transparent indent-[10000px]"
-																src={user?.avatar || UserAvatar}
-																alt={user?.fullName || ""}
-															/>
-														</div>
-													</div>
-													<div
-														className="mb-[6px] mt-[6px] min-w-0"
-														style={{ flex: "1 1 auto" }}
-													>
-														<span className="font-semibold text-sm">
-															{user?.fullName || "Sandalio"}
-														</span>
-														<p className="font-light text-xs capitalize">
-															{user?.role || "Rufían"}
-														</p>
-													</div>
-													<div
-														className="absolute right-0 top-[50%]"
-														style={{ transform: "translateY(-50%)" }}
-													>
-														<button
-															className="
-																inline-flex 
-																items-center
-																justify-center
-																relative
-																box-border
-																bg-transparent
-																outline-0
-																border-0
-																m-0
-																cursor-pointer
-																align-middle
-																text-center
-																overflow-visible
-																p-[5px]
-																rounded-[8px]
-																w-[30px]
-																h-[30px]
-																text-xs
-																ml-auto
-																text-[#3e4853]
-															"
-															style={{
-																textDecoration: "none",
-																transform: "rotate(0deg)",
-																transition:
-																	"transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
-															}}
-														>
-															<span className="pi pi-angle-right"></span>
-														</button>
-													</div>
-												</>
-											)}
+											<div className="min-w-[56px] shrink-0">
+												<div className="relative flex items-center justify-center shrink-0 leading-1 rounded-[50%] overflow-hidden bg-[#e9f0ff80] w-[46px] h-[46px]">
+													<img
+														className="w-full h-full text-center object-cover text-transparent indent-[10000px]"
+														src={user?.avatar || UserAvatar}
+														alt={user?.fullName || ""}
+													/>
+												</div>
+											</div>
+											<div
+												className="mb-[6px] mt-[6px] min-w-0"
+												style={{ flex: "1 1 auto" }}
+											>
+												<span className="font-semibold text-sm">
+													{user?.fullName ?? <Loader />}
+												</span>
+												<p className="font-light text-xs capitalize">
+													{user?.role ?? <Loader />}
+												</p>
+											</div>
+											<div
+												className="absolute right-0 top-[50%]"
+												style={{ transform: "translateY(-50%)" }}
+											>
+												<button
+													className="
+														inline-flex 
+														items-center
+														justify-center
+														relative
+														box-border
+														bg-transparent
+														outline-0
+														border-0
+														m-0
+														cursor-pointer
+														align-middle
+														text-center
+														overflow-visible
+														p-[5px]
+														rounded-[8px]
+														w-[30px]
+														h-[30px]
+														text-xs
+														ml-auto
+														text-[#3e4853]
+													"
+													style={{
+														textDecoration: "none",
+														transform: "rotate(0deg)",
+														transition:
+															"transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
+													}}
+												>
+													<span className="pi pi-angle-right"></span>
+												</button>
+											</div>
 										</li>
 									</ul>
 								</div>
