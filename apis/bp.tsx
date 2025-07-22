@@ -8,6 +8,7 @@ import {
 	Timestamp,
 } from "firebase/firestore";
 import { db } from "@/lib/firebase/firebase";
+import apis from "@/apis";
 import { BP, BPForm } from "@/types/BP";
 
 const bp = {
@@ -19,6 +20,7 @@ const bp = {
 	AddBps: async (data: BPForm): Promise<void> => {
 		const id = crypto.randomUUID();
 		const ref = doc(db, "bps", id);
+
 		const bp: BP = {
 			id,
 			sis: data.sis,
@@ -30,7 +32,15 @@ const bp = {
 			updatedAt: Timestamp.now(),
 			updatedBy: data.updatedBy,
 		};
+
 		await setDoc(ref, bp);
+
+		await apis.notification.CreateNotification({
+			createdBy: data.createdBy,
+			message: `Nuevo registro! (${data.sis}/${data.dia})`,
+			refType: "bp",
+			refId: id,
+		});
 	},
 };
 

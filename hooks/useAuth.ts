@@ -12,6 +12,7 @@ import {
   signOut, 
   User
 } from "firebase/auth"
+import { doc, getDoc, getDocs, getFirestore, setDoc, serverTimestamp } from "firebase/firestore"
 
 export function useAuth(
   redirectAuthenticated = "/dashboard", 
@@ -55,8 +56,25 @@ export function useAuth(
   const loginWithGoogle = async () => {
     const provider = new GoogleAuthProvider()
     const userCredential = await signInWithPopup(auth, provider)
+    const user = userCredential.user
+
+    const db = getFirestore()
+    const userRef = doc(db, "users", user.uid)
+    const userSnap = await getDoc(userRef)
+
+    if (!userSnap.exists()) {
+      await setDoc(userRef, {
+        fullName: user.displayName ?? "",
+        wmail: user.email ?? "",
+        avatar: user.photoURL ?? "",
+        role: "user",
+        createdAt: serverTimestamp(),
+      })
+    }
+
     document.cookie = "session=true; path=/"
     router.push('/dashboard')
+    
     return userCredential
   }
 

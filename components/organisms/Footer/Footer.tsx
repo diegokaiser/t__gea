@@ -5,7 +5,7 @@ const Footer = () => {
 		<div className="flex items-center justify-between mt-auto pt-4">
 			<span className="text-xs">
 				<span className="tracking-[2px]">
-					&copy; HELIOS 2025 &nbsp;&nbsp;&nbsp;
+					&copy; G E A 2025 &nbsp;&nbsp;&nbsp;
 				</span>
 				<span className="tracking-[1px]">
 					warped by&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

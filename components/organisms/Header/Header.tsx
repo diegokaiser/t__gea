@@ -103,7 +103,7 @@ const Header = ({
 									inset: "0px 0px auto auto",
 									margin: "0px",
 									position: "absolute",
-									transform: "translate3d(-64px, 68px, 0px)",
+									transform: "translate3d(-20px, 68px, 0px)",
 								}}
 							>
 								<div>
@@ -117,7 +117,7 @@ const Header = ({
 										}}
 									>
 										<div
-											className="bg-white max-w-[450px] min-w-[420px] rounded-[12px] w-[450px] text-[#1d2630]"
+											className="bg-white max-w-[350px] min-w-[350px] rounded-[12px] w-[350px] text-[#1d2630]"
 											style={{
 												boxShadow: "0px 8px 24px rgba(19, 25, 32, 0.08)",
 												transition:

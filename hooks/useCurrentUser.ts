@@ -10,16 +10,12 @@ export function useCurrentUser() {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
-      if (firebaseUser) {
-        setUid(firebaseUser.uid)
-      } else {
-        setUid(null)
-      }
+      setUid(firebaseUser?.uid ?? null)
     })
     return () => unsubscribe()
   }, [])
 
-  return useQuery<User | null>({
+  const query = useQuery<User | null>({
     queryKey: ["currentUser", uid],
     enabled: !!uid,
     queryFn: async () => {
@@ -29,4 +25,9 @@ export function useCurrentUser() {
     },
     staleTime: 1000 * 60 *5
   })
+
+  return {
+    ...query,
+    uid
+  }
 }

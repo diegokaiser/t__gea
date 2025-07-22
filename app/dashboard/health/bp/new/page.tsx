@@ -11,10 +11,14 @@ import { BPFormSchema } from "@/schema/bpSchema";
 import { LoadingScreen, Message } from "@/components/atoms";
 import { Breadcrumbs } from "@/components/organisms";
 import apis from "@/apis";
+import { useCurrentUser } from "@/hooks/useCurrentUser";
 
 const Page = () => {
 	const toast = useRef<Toast>(null);
 	const [loading, setLoading] = useState(false);
+
+	const { data: currentUser, uid } = useCurrentUser();
+	const userUid = uid;
 
 	const {
 		register,
@@ -35,8 +39,8 @@ const Page = () => {
 			await apis.bp.AddBps({
 				...data,
 				pam,
-				createdBy: "",
-				updatedBy: "",
+				createdBy: uid ?? "",
+				updatedBy: uid ?? "",
 			});
 
 			toast.current?.show({
