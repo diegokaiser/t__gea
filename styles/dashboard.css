@@ -34,6 +34,10 @@ select[readonly]::placeholder {
   color: #dbe0e5;
 }
 
+input {
+  outline: none;
+}
+
 .p-datatable-header {
   background-color: transparent;
   border-top: none;

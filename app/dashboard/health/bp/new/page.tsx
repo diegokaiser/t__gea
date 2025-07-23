@@ -102,8 +102,9 @@ const Page = () => {
 											<div className="box-border inline-flex w-full relative rounded-[8px] border border-solid border-[#bec8d0] h-12">
 												<input
 													id="sistolica"
-													type="number"
-													className="border-0 box-border bg-none m-0 block min-w-0 w-full p-[14px]"
+													type="tel"
+													inputMode="numeric"
+													className="border-0 box-border bg-none m-0 block min-w-0 w-full p-[14px] text-base"
 													placeholder="140"
 													autoComplete="off"
 													{...register("sis")}
@@ -128,8 +129,9 @@ const Page = () => {
 											<div className="box-border inline-flex w-full relative rounded-[8px] border border-solid border-[#bec8d0] h-12">
 												<input
 													id="diastolica"
-													type="number"
-													className="border-0 box-border bg-none m-0 block min-w-0 w-full p-[14px]"
+													type="tel"
+													inputMode="numeric"
+													className="border-0 box-border bg-none m-0 block min-w-0 w-full p-[14px] text-base"
 													placeholder="70"
 													autoComplete="off"
 													{...register("dia")}
@@ -154,8 +156,9 @@ const Page = () => {
 											<div className="box-border inline-flex w-full relative rounded-[8px] border border-solid border-[#bec8d0] h-12">
 												<input
 													id="pulso"
-													type="number"
-													className="border-0 box-border bg-none m-0 block min-w-0 w-full p-[14px]"
+													type="tel"
+													inputMode="numeric"
+													className="border-0 box-border bg-none m-0 block min-w-0 w-full p-[14px] text-base"
 													placeholder="70"
 													autoComplete="off"
 													{...register("pul")}
